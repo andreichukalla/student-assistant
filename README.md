@@ -1,25 +1,34 @@
 # Student Assistant Project - Web Version.
 
 ## Опис
+
 Student Assistant - навчальний застосунок-планувальник завдань для студентів.
 
 ## Архітектура
+
 Кросплатформна система з кількох клієнтів.
 
 ## Технології
-- React - веб-інтерфейс
-- Electron - десктопна обгортка
-- C++ / Qt - нативний клієнт
-- Python / Flet - аналітика
+
+* React - веб-інтерфейс
+* Electron - десктопна обгортка
+* C++ / Qt - нативний клієнт
+* Python / Flet - аналітика
 
 ## Структура репозиторію
-- frontend/
-- desktop-container/
-- cpp-core/
-- python-analytics/
-- data/
+
+* frontend/
+* desktop-container/
+* cpp-core/
+* python-analytics/
+* data/
 
 ## Автор
+
 Андрейчук Алла, група КН-5
+
 ## Прогрес
-- Практична робота № 2 виконана.
+
+* Практична робота № 2 виконана.
+* Тестова зміна для ПР3
+
