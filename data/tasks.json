@@ -3,42 +3,35 @@
     "id": 1,
     "title": "Підготувати конспект лекції 2",
     "completed": true,
-    "dueDate": "2026-09-15"
+    "dueDate": "2026-09-15",
+    "priority": "high"
   },
   {
     "id": 2,
     "title": "Виконати практичну роботу № 2",
     "completed": true,
-    "dueDate": "2026-09-10"
+    "dueDate": "2026-09-10",
+    "priority": "medium"
   },
   {
     "id": 3,
     "title": "Прочитати розділ про branches",
     "completed": false,
-    "dueDate": "2026-09-20"
+    "dueDate": "2026-09-20",
+    "priority": "high"
   },
   {
     "id": 4,
     "title": "Підготуватися до самостійної роботи № 1",
     "completed": false,
-    "dueDate": "2026-09-25"
+    "dueDate": "2026-09-25",
+    "priority": "low"
   },
   {
     "id": 5,
-    "title": "Підготувати матеріали до Практичної роботи № 3",
+    "title": "Назва вашого завдання",
     "completed": false,
-    "dueDate": "2026-09-28"
-  },
-  {
-    "id": 6,
-    "title": "Повторити команди git branch та git merge",
-    "completed": false,
-    "dueDate": "2026-10-01"
-  },
-  {
-    "id": 7,
-    "title": "Оформити звіт з дисципліни",
-    "completed": false,
-    "dueDate": "2026-10-05"
+    "dueDate": "2026-09-28",
+    "priority": "medium"
   }
 ]
