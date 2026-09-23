@@ -1,4 +1,4 @@
-# Student Assistant
+# Student Assistant Project - Web Version.
 
 ## Опис
 Student Assistant - навчальний застосунок-планувальник завдань для студентів.
