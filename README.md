@@ -1,4 +1,4 @@
-# Student Assistant Project - Web Version.
+Student Assistant Project
 
 ## Опис
 
