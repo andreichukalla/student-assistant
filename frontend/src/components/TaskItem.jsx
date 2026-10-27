@@ -1,7 +1,11 @@
 function TaskItem({ task }) {
   return (
     <li className="task-item">
-      <span>{task.title}</span>
+      <span
+        style={{ textDecoration: task.completed ? "line-through" : "none" }}
+      >
+        {task.title}
+      </span>
       <span> - {task.priority}</span>
     </li>
   );
