@@ -6,6 +6,9 @@ function TaskItem({ task }) {
       >
         {task.title}
       </span>
+      {task.priority === "high" && (
+        <span style={{ color: "red", marginLeft: "8px" }}>[Терміново]</span>
+      )}
       <span> - {task.priority}</span>
     </li>
   );
