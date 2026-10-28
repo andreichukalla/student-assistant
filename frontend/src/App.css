@@ -1,13 +1,81 @@
+/* ==========================================================================
+   Breakpoints (Mobile-First approach):
+   - mobile: 0px and up (base styles, no media query)
+   - tablet: min-width 600px (@media (min-width: 600px))
+   - desktop: min-width 1024px (@media (min-width: 1024px))
+   ========================================================================== */
+
 body {
   margin: 0;
   font-family: sans-serif;
 }
 
-.app {
-  max-width: 640px;
+/* --- КРОК 3: КОНТЕЙНЕР ЗАСТОСУНКУ (Mobile-First) --- */
+.app,
+.app-container {
+  padding: 12px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 24px;
 }
+
+@media (min-width: 600px) {
+  .app,
+  .app-container {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app,
+  .app-container {
+    padding: 32px;
+  }
+}
+
+/* --- КРОК 5 ТА 6: ЗАГОЛОВОК ЗАСТОСУНКУ І ГНУЧКА ТИПОГРАФІКА --- */
+.app-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+}
+
+.app-header h1 {
+  font-size: clamp(1.25rem, 4vw, 2rem);
+  margin: 0;
+}
+
+@media (min-width: 600px) {
+  .app-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* --- КРОК 4: СІТКА СПИСКУ ЗАВДАНЬ (CSS Grid) --- */
+.task-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 600px) {
+  .task-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .task-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* --- СТИЛІ КАРТКИ ЗАВДАННЯ --- */
 .task-card {
   display: flex;
   justify-content: space-between;
@@ -17,9 +85,9 @@ body {
   border-radius: 8px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   list-style: none;
-  background-color: #2a2d34; /* або #ffffff для білого фону карток */
+  background-color: #2a2d34;
 }
-/* Кольорові смужки зліва залежно від пріоритету */
+
 .priority-high {
   border-left: 4px solid #e63946;
 }
@@ -32,11 +100,11 @@ body {
   border-left: 4px solid #2a9d8f;
 }
 
-/* Стиль для виконаних завдань */
 .task-card.completed span:first-child {
   text-decoration: line-through;
   opacity: 0.6;
 }
+
 @media (max-width: 480px) {
   .task-card {
     flex-direction: column;

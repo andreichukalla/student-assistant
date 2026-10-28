@@ -5,8 +5,8 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="app">
-      <Header />
+    <div className="app-container">
+      <Header taskCount={tasks.length} />
       <TaskList tasks={tasks} />
     </div>
   );
