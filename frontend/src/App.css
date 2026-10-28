@@ -3,6 +3,7 @@
    - mobile: 0px and up (base styles, no media query)
    - tablet: min-width 600px (@media (min-width: 600px))
    - desktop: min-width 1024px (@media (min-width: 1024px))
+   - large desktop: min-width 1440px (@media (min-width: 1440px))
    ========================================================================== */
 
 body {
@@ -10,11 +11,11 @@ body {
   font-family: sans-serif;
 }
 
-/* --- КРОК 3: КОНТЕЙНЕР ЗАСТОСУНКУ (Mobile-First) --- */
+/* --- КОНТЕЙНЕР ЗАСТОСУНКУ (Mobile-First) --- */
 .app,
 .app-container {
   padding: 12px;
-  max-width: 1200px;
+  max-width: 1400px; /* Трохи розширюємо контейнер під 4 колонки */
   margin: 0 auto;
 }
 
@@ -32,7 +33,7 @@ body {
   }
 }
 
-/* --- КРОК 5 ТА 6: ЗАГОЛОВОК ЗАСТОСУНКУ І ГНУЧКА ТИПОГРАФІКА --- */
+/* --- ЗАГОЛОВОК ЗАСТОСУНКУ І ГНУЧКА ТИПОГРАФІКА --- */
 .app-header {
   display: flex;
   flex-direction: column;
@@ -53,7 +54,7 @@ body {
   }
 }
 
-/* --- КРОК 4: СІТКА СПИСКУ ЗАВДАНЬ (CSS Grid) --- */
+/* --- ІНДИВІДУАЛЬНЕ ЗАВДАННЯ: СІТКА СПИСКУ ЗАВДАНЬ (CSS Grid) --- */
 .task-list {
   display: grid;
   grid-template-columns: 1fr;
@@ -63,15 +64,24 @@ body {
   margin: 0;
 }
 
+/* Планшет (від 600px: 2 колонки) */
 @media (min-width: 600px) {
   .task-list {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+/* Десктоп (від 1024px: 3 колонки) */
 @media (min-width: 1024px) {
   .task-list {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Великий десктоп (від 1440px: 4 колонки) — ІНДИВІДУАЛЬНЕ ЗАВДАННЯ */
+@media (min-width: 1440px) {
+  .task-list {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -88,6 +98,13 @@ body {
   background-color: #2a2d34;
 }
 
+/* ІНДИВІДУАЛЬНЕ ЗАВДАННЯ: Гнучка типографіка для назви завдання */
+.task-card h3,
+.task-card span:first-child {
+  font-size: clamp(0.9rem, 1.5vw, 1.15rem);
+  margin: 0;
+}
+
 .priority-high {
   border-left: 4px solid #e63946;
 }
@@ -100,7 +117,8 @@ body {
   border-left: 4px solid #2a9d8f;
 }
 
-.task-card.completed span:first-child {
+.task-card.completed span:first-child,
+.task-card.completed h3 {
   text-decoration: line-through;
   opacity: 0.6;
 }

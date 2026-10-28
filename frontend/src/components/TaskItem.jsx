@@ -12,7 +12,6 @@ const StyledCard = styled.li`
   list-style: none;
   background-color: #2a2d34;
 
-  /* Завдання 3: Плавна зміна кольору лівої смужки та тіні */
   border-left: 4px solid
     ${(props) =>
       props.$priority === "high"
@@ -30,13 +29,11 @@ const StyledCard = styled.li`
     transform: translateY(-2px);
   }
 
-  /* Завдання 2: Медіазапит для середніх екранів (до 768px) */
   @media (max-width: 768px) {
     padding: 12px 14px;
-    background-color: #23252b; /* Проміжний відтінок фону */
+    background-color: #23252b;
   }
 
-  /* Медіазапит для вузьких мобільних екранів (до 480px) */
   @media (max-width: 480px) {
     flex-direction: column;
     align-items: flex-start;
@@ -45,11 +42,12 @@ const StyledCard = styled.li`
   }
 `;
 
-// Стилізований текст назви завдання
+// Стилізований текст назви завдання з clamp()
 const TaskTitle = styled.span`
   text-decoration: ${(props) => (props.$completed ? "line-through" : "none")};
   opacity: ${(props) => (props.$completed ? 0.6 : 1)};
   font-weight: 500;
+  font-size: clamp(0.9rem, 1.5vw, 1.15rem);
 `;
 
 // Стилізована позначка терміновості
@@ -72,7 +70,7 @@ function TaskItem({ task }) {
         {task.title}
         {task.priority === "high" && <UrgentBadge>[Терміново]</UrgentBadge>}
       </TaskTitle>
-      <PriorityLabel> - {task.priority}</PriorityLabel>
+      <PriorityLabel>{task.priority}</PriorityLabel>
     </StyledCard>
   );
 }
