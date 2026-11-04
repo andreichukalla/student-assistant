@@ -21,3 +21,12 @@ If you are developing a production application, we recommend using TypeScript wi
 2. Розпакувати вміст архіву в папку `C:\nwjs\`.
 3. Для збірки проєкту перейти в папку `frontend/` та виконати команду: `npm run build`.
 4. Для запуску перейти в папку `dist/` (`cd dist`) та виконати: `C:\nwjs\nw.exe .` (або `/c/nwjs/nw.exe .` у Git Bash).
+
+### Швидкий запуск (команда desktop)
+
+У папці `frontend/` також доступна команда:
+`npm run desktop`
+
+Вона автоматично виконує збірку `vite build` та одразу запускає застосунок у контейнері NW.js.
+
+> **Примітка:** Шлях до `nw.exe` у скрипті (`C:\nwjs\nw.exe`) прив'язаний до конкретного ПК, тому команда не є універсальною.
