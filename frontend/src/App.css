@@ -130,3 +130,11 @@ body {
     padding: 10px 12px;
   }
 }
+.storage-status {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0 0 1rem;
+}
+.storage-error {
+  color: #b71c1c;
+}
