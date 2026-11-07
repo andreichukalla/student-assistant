@@ -1,5 +1,15 @@
-// Початковий вміст нового файлу: порожній масив завдань.
-const INITIAL_CONTENT = "[]\n";
+// Початковий вміст нового файлу: демонстраційне завдання у форматі JSON з відступами
+const demoData = [
+  {
+    id: 1,
+    title: "Демонстраційне завдання",
+    completed: false,
+    dueDate: "2026-12-31",
+    priority: "medium",
+  },
+];
+
+const INITIAL_CONTENT = JSON.stringify(demoData, null, 2) + "\n";
 
 // Повертає модулі Node, якщо код працює у вікні NW.js.
 // У звичайному браузері (npm run dev) повертає null.
