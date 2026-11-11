@@ -19,9 +19,19 @@ function App() {
     saveTasks(updated);
   }
 
+  // Обчислюємо кількість виконаних та загальну кількість завдань
+  const totalTasks = tasks.length;
+  const completedTasks = tasks.filter((task) => task.completed).length;
+
   return (
     <div className="app-container">
-      <Header taskCount={tasks.length} />
+      <Header taskCount={totalTasks} />
+
+      {/* Індивідуальне завдання: вивід лічильника */}
+      <p className="completed-counter">
+        Виконано: {completedTasks} з {totalTasks}
+      </p>
+
       <TaskList tasks={tasks} onToggle={handleToggle} />
     </div>
   );
