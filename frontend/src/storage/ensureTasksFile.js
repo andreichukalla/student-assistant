@@ -13,7 +13,7 @@ const INITIAL_CONTENT = JSON.stringify(demoData, null, 2) + "\n";
 
 // Повертає модулі Node, якщо код працює у вікні NW.js.
 // У звичайному браузері (npm run dev) повертає null.
-function getNode() {
+export function getNode() {
   if (typeof window !== "undefined" && window.require) {
     return {
       fs: window.require("fs"),
@@ -25,7 +25,7 @@ function getNode() {
 
 // NW.js запускається з теки frontend/dist, тому до
 // data/tasks.json піднімаємось на два рівні вгору.
-function getDataPath(node) {
+export function getDataPath(node) {
   const cwd = window.process.cwd();
   return node.path.resolve(cwd, "..", "..", "data", "tasks.json");
 }

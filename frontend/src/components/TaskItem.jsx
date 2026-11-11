@@ -42,6 +42,20 @@ const StyledCard = styled.li`
   }
 `;
 
+// Стилізований контейнер для чекбокса та назви
+const TaskContent = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
+// Стилізований чекбокс
+const Checkbox = styled.input`
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+`;
+
 // Стилізований текст назви завдання з clamp()
 const TaskTitle = styled.span`
   text-decoration: ${(props) => (props.$completed ? "line-through" : "none")};
@@ -63,13 +77,20 @@ const PriorityLabel = styled.span`
   color: #a0a0a0;
 `;
 
-function TaskItem({ task }) {
+function TaskItem({ task, onToggle }) {
   return (
     <StyledCard $priority={task.priority}>
-      <TaskTitle $completed={task.completed}>
-        {task.title}
-        {task.priority === "high" && <UrgentBadge>[Терміново]</UrgentBadge>}
-      </TaskTitle>
+      <TaskContent>
+        <Checkbox
+          type="checkbox"
+          checked={task.completed}
+          onChange={() => onToggle(task.id)}
+        />
+        <TaskTitle $completed={task.completed}>
+          {task.title}
+          {task.priority === "high" && <UrgentBadge>[Терміново]</UrgentBadge>}
+        </TaskTitle>
+      </TaskContent>
       <PriorityLabel>{task.priority}</PriorityLabel>
     </StyledCard>
   );

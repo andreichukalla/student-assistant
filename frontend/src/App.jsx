@@ -1,31 +1,28 @@
 import { useEffect, useState } from "react";
-import tasks from "./tasks.json";
 import TaskList from "./components/TaskList";
 import Header from "./components/Header";
-import StorageStatus from "./components/StorageStatus";
-import { ensureTasksFile } from "./storage/ensureTasksFile";
+import { loadTasks, saveTasks } from "./storage/tasksFile";
 import "./App.css";
 
 function App() {
-  const [storage, setStorage] = useState(null);
-  const [storageError, setStorageError] = useState("");
+  const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    async function init() {
-      try {
-        setStorage(await ensureTasksFile());
-      } catch (err) {
-        setStorageError(err.message);
-      }
-    }
-    init();
+    loadTasks().then(setTasks);
   }, []);
+
+  function handleToggle(id) {
+    const updated = tasks.map((task) =>
+      task.id === id ? { ...task, completed: !task.completed } : task,
+    );
+    setTasks(updated);
+    saveTasks(updated);
+  }
 
   return (
     <div className="app-container">
       <Header taskCount={tasks.length} />
-      <StorageStatus info={storage} error={storageError} />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} onToggle={handleToggle} />
     </div>
   );
 }

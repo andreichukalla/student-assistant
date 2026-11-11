@@ -100,7 +100,7 @@ body {
 
 /* ІНДИВІДУАЛЬНЕ ЗАВДАННЯ: Гнучка типографіка для назви завдання */
 .task-card h3,
-.task-card span:first-child {
+.task-card span:first-of-type {
   font-size: clamp(0.9rem, 1.5vw, 1.15rem);
   margin: 0;
 }
@@ -117,7 +117,7 @@ body {
   border-left: 4px solid #2a9d8f;
 }
 
-.task-card.completed span:first-child,
+.task-card.completed span:first-of-type,
 .task-card.completed h3 {
   text-decoration: line-through;
   opacity: 0.6;
@@ -129,12 +129,4 @@ body {
     align-items: flex-start;
     padding: 10px 12px;
   }
-}
-.storage-status {
-  font-size: 0.9rem;
-  color: #555;
-  margin: 0 0 1rem;
-}
-.storage-error {
-  color: #b71c1c;
 }
