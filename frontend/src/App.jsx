@@ -19,20 +19,23 @@ function App() {
     saveTasks(updated);
   }
 
-  // Обчислюємо кількість виконаних та загальну кількість завдань
+  // Нова функція для видалення завдання
+  function handleDelete(id) {
+    const updated = tasks.filter((task) => task.id !== id);
+    setTasks(updated);
+    saveTasks(updated);
+  }
+
   const totalTasks = tasks.length;
   const completedTasks = tasks.filter((task) => task.completed).length;
 
   return (
     <div className="app-container">
       <Header taskCount={totalTasks} />
-
-      {/* Індивідуальне завдання: вивід лічильника */}
       <p className="completed-counter">
         Виконано: {completedTasks} з {totalTasks}
       </p>
-
-      <TaskList tasks={tasks} onToggle={handleToggle} />
+      <TaskList tasks={tasks} onToggle={handleToggle} onDelete={handleDelete} />
     </div>
   );
 }

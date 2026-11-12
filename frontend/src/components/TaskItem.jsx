@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-// Стилізована картка-контейнер
 const StyledCard = styled.li`
   display: flex;
   justify-content: space-between;
@@ -42,21 +41,18 @@ const StyledCard = styled.li`
   }
 `;
 
-// Стилізований контейнер для чекбокса та назви
 const TaskContent = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
 `;
 
-// Стилізований чекбокс
 const Checkbox = styled.input`
   cursor: pointer;
   width: 18px;
   height: 18px;
 `;
 
-// Стилізований текст назви завдання з clamp()
 const TaskTitle = styled.span`
   text-decoration: ${(props) => (props.$completed ? "line-through" : "none")};
   opacity: ${(props) => (props.$completed ? 0.6 : 1)};
@@ -64,20 +60,40 @@ const TaskTitle = styled.span`
   font-size: clamp(0.9rem, 1.5vw, 1.15rem);
 `;
 
-// Стилізована позначка терміновості
 const UrgentBadge = styled.span`
   color: #e63946;
   margin-left: 8px;
   font-weight: bold;
 `;
 
-// Стилізований текст пріоритету
+const ActionsGroup = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+`;
+
 const PriorityLabel = styled.span`
   font-size: 0.9em;
   color: #a0a0a0;
 `;
 
-function TaskItem({ task, onToggle }) {
+const DeleteButton = styled.button`
+  background-color: transparent;
+  color: #e63946;
+  border: 1px solid #e63946;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #e63946;
+    color: #ffffff;
+  }
+`;
+
+function TaskItem({ task, onToggle, onDelete }) {
   return (
     <StyledCard $priority={task.priority}>
       <TaskContent>
@@ -91,7 +107,10 @@ function TaskItem({ task, onToggle }) {
           {task.priority === "high" && <UrgentBadge>[Терміново]</UrgentBadge>}
         </TaskTitle>
       </TaskContent>
-      <PriorityLabel>{task.priority}</PriorityLabel>
+      <ActionsGroup>
+        <PriorityLabel>{task.priority}</PriorityLabel>
+        <DeleteButton onClick={() => onDelete(task.id)}>Видалити</DeleteButton>
+      </ActionsGroup>
     </StyledCard>
   );
 }
