@@ -16,6 +16,14 @@ export function isRealDate(value) {
   );
 }
 
+function getTodayISO() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
 export function validateTask(input) {
   const errors = {};
   const title = (input.title ?? "").trim();
@@ -33,6 +41,8 @@ export function validateTask(input) {
     errors.dueDate = "Вкажіть термін виконання.";
   } else if (!isRealDate(dueDate)) {
     errors.dueDate = "Вкажіть існуючу дату у форматі РРРР-ММ-ДД.";
+  } else if (dueDate < getTodayISO()) {
+    errors.dueDate = "Термін виконання не може бути в минулому.";
   }
 
   if (!PRIORITIES.includes(input.priority)) {
