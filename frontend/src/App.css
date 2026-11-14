@@ -130,3 +130,59 @@ body {
     padding: 10px 12px;
   }
 }
+/* --- ПРАКТИЧНА РОБОТА № 12: ФОРМА ТА ПОВІДОМЛЕННЯ ПРО ПОМИЛКИ --- */
+.error-banner {
+  background: #fdecea;
+  color: #b71c1c;
+  border-left: 4px solid #b71c1c;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.field-error {
+  color: #ff6b6b;
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+}
+
+.task-form {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 20px;
+  background-color: #2a2d34;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.task-form label {
+  display: grid;
+  gap: 4px;
+  font-size: 0.95rem;
+}
+
+.task-form input,
+.task-form select {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #444851;
+  background-color: #1e2025;
+  color: inherit;
+  font-size: 0.95rem;
+}
+
+.task-form button {
+  justify-self: start;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  background-color: #2a9d8f;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.task-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
